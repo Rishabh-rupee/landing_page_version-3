@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RupeeLending - Instant Loan Offer</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <meta name="keywords"
+    content="RupeeLending, FinTech, Online Loans, Instant Loans, Digital Lending, Financial Services" />
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header id="topHeader"
+    class="bg-gray-300 text-white py-4 px-4 sm:px-6 flex wrap  sm:flex-row justify-between items-center gap-4 sm:gap-0">
+    <!-- Logo + Site Link -->
+    <div class="flex items-center space-x-4">
+      <img src="assets/logo1.webp" alt="Rupee Lending Logo" class="h-8 md:h-10 w-auto " />
+      <!-- <a
+      href="https://rupeelending.com"
+      target="_blank"
+      class="text-sm text-blue-600 underline hover:text-blue-800 transition"
+    >
+      Visit RupeeLending.com
+    </a> -->
+    </div>
+    <div class="absolute inset-0 bg-black/60 w-full h-full"></div>
+    <!-- Content -->
+    <div class="applyBtn">
+      <button onclick="openModal()"
+        class="w-full blink-me inline-flex items-center justify-center px-8 py-4 font-bold text-white text-xl rounded-xl shadow-xl transition-transform duration-300"
+        style="background-color: #66bb6a;">
+        🚀 Apply Now
+      </button>
+    </div>
+    <!-- Contact Number -->
+    <div class="text-sm md:text-base font-medium text-center sm:text-right">
+      📞 <span class="text-green-600">91-9891-24-7-365</span>
+    </div>
+  </header>
+
+  <!-- end  -->
+  <!-- Hero Section -->
+  <main>
+    <section>
+      <div class="aspect-[4/3] md:aspect-[16/9] w-full">
+        <img src="assets/banner-three.svg" alt="Banner" class="w-full h-full object-cover" />
+      </div>
+    </section>
+
+    <!-- end -->
+
+    <section class="bg-grey-100 py-12 px-4 text-center">
+      <p class="text-green-700 font-semibold mb-2">We Promise</p>
+      <h1 class="md:text-3xl text-2xl font-bold text-gray-800 mb-4">
+        Fast, Trusted & Secure Loans
+      </h1>
+      <p class="text-gray-600 max-w-xl mx-auto mb-10">
+        RupeeLending makes this process quicker, easier, and safer for you in every possible way!
+      </p>
+
+      <!-- This container will be populated by JavaScript -->
+      <div id="promise-cards-container" class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- The promise cards will be dynamically inserted here -->
+      </div>
+    </section>
+    <!-- end  -->
+    <section class="bg-yellow-50 py-12 px-4 text-center">
+      <p class="text-green-700 font-semibold mb-2">Quick Process</p>
+      <h2 class="md:text-3xl text-2xl font-bold text-gray-800 mb-4">
+        Minimal Documentation,<br />Maximum Benefits
+      </h2>
+      <p class="text-gray-600 max-w-xl mx-auto mb-10">
+        Enjoy a seamless experience with our hassle-free documentation process. Apply with just a few simple steps and
+        get
+        approved instantly.
+      </p>
+
+      <!-- This container will be populated by JavaScript -->
+      <div id="documentation-cards-container" class="grid md:grid-cols-4 sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <!-- The documentation cards will be dynamically inserted here -->
+      </div>
+    </section>
+    <!-- Application Form -->
+    <div class="flex flex-col md:flex-row justify-center items-center p-5 md:p-10 gap-8 bg-white">
+
+      <!-- Left Side: Testimonials (will be populated by JS) -->
+      <div class="w-full max-w-xl mx-auto text-center">
+        <h2 class="md:text-3xl text-2xl font-bold text-gray-800 mb-6">What Our Customers Say</h2>
+        <div class="relative overflow-hidden">
+          <div id="reviewCarousel" class="relative h-64"></div>
+          <div id="reviewDotsContainer" class="flex justify-center space-x-2 mt-6"></div>
+        </div>
+      </div>
+
+      <!-- Right Side: Application Form (will be populated by JS) -->
+      <form id="loanForm" class="bg-yellow-50 rounded-2xl p-5 md:p-10">
+        <h2 class="md:text-3xl text-2xl font-bold text-center text-[#38773f] mb-6">Apply for an Instant Loan</h2>
+
+        <!-- Loan Details Fields Container -->
+        <div class="mb-6">
+          <div id="loan-details-container" class="grid grid-cols-2 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <!-- Personal Details Fields Container -->
+        <div class="mb-6">
+          <div id="personal-details-container" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+        </div>
+
+        <!-- Static Consent Checkbox -->
+        <div class="mb-6">
+          <label class="inline-flex items-start gap-2 text-sm text-gray-700">
+            <input type="checkbox" name="consent" required class="mt-1" checked />
+            I consent to receive communications and agree to the Terms and Conditions.
+          </label>
+        </div>
+
+        <!-- Static Submit Button -->
+        <div class="text-center">
+          <button type="submit" id="submitButton"
+            class="w-full md:w-1/2 bg-green-400 text-white py-3 rounded-lg hover:bg-green-600 transition font-semibold">
+            Submit Application
+          </button>
+          <div id="successMsg" class="success-message"></div>
+        </div>
+      </form>
+
+    </div>
+    <!-- FAQ + Image Section -->
+    <section class="bg-yellow-50 py-12 px-4">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <!-- Left: FAQ -->
+        <div>
+          <h2 class="md:text-3xl text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+          <!-- This container will be populated by JavaScript -->
+          <div id="faq-container" class="space-y-4">
+            <!-- FAQ items will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="flex justify-center">
+          <img src="assets/faqtwo.webp" alt="instant-loan" class="rounded-xl shadow-lg " />
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <!-- Modal -->
+  <div id="formModal" class="fixed inset-0 bg-black bg-opacity-50 hidden  justify-center items-center  px-2 sm:px-4"
+    style="z-index: 1000;">
+
+    <div class=" relative flex" style="height: auto;">
+      <!-- Form -->
+      <form class="relative  overflow-y-auto bg-white w-full max-w-4xl mx-auto p-3 sm:p-6 rounded shadow-md"
+        id="loanFormcta">
+        <button onclick="closeModal()"
+          class="absolute top-3 right-4 text-2xl text-gray-400 hover:text-red-600 font-bold">
+          &times;
+        </button>
+        <!-- Heading -->
+        <h2 class="text-lg sm:text-2xl font-bold text-center text-[#38773f] mb-4 sm:mb-6">
+          Apply for an Instant Loan
+        </h2>
+
+        <!-- Loan Details -->
+        <div class="mb-4 sm:mb-6">
+          <div id="financial-fields-container" class="grid grid-cols-2 gap-4">
+            <!-- Financial fields will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Personal Details -->
+        <div class="mb-4 sm:mb-6">
+          <div id="personal-fields-container" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Personal fields will be inserted here -->
+          </div>
+        </div>
+
+        <!-- Consent -->
+        <div class="mb-4 sm:mb-6">
+          <label class="inline-flex items-start gap-2 text-xs sm:text-sm text-gray-700 cursor-pointer">
+            <input type="checkbox" name="consent" required class="mt-1" checked />
+            I consent to receive communications and agree to the T&C.
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" id="submitButtoncta"
+            class="w-full md:w-1/2 bg-green-400 text-white py-3 rounded hover:bg-green-600 transition font-semibold">
+            Submit Application
+          </button>
+          <div id="successMsgCTA" class="success-message text-yellow-400"></div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <!-- Footer -->
+ <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 bg-[#16243d] text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">📞 Contact Us</h3>
+        <p class="text-gray-300 mb-2">
+          Email:
+          <a href="mailto:care@rupeelending.com" class="text-blue-400 hover:underline">care@rupeelending.com</a>
+        </p>
+        <p class="text-gray-300">
+          Phone:
+          <a href="tel:91-9891-24-7-365" class="text-blue-400 hover:underline">+91-9891-24-7-365</a>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">
+          Jublee Dealers Private Limited
+        </h3>
+        <ul class="space-y-2 text-gray-300">
+          <li>
+            <a href="/about-us" class="hover:text-white transition duration-200">Corporate Identity No. (CIN): <br>
+              U 5 1 9 0 9 W B 1 9 9 4 P T C 0 6 3 6 0 3
+            </a>
+          </li>
+          <li>
+            <a href="/privacy-policy" class="hover:text-white transition duration-200">RBI Certificate of Registration
+              No (CoR):<br>B. 0 5. 0 5 8 0
+              6</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media + CTA -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">📱 Follow Us</h3>
+        <div class="flex space-x-4 mb-4">
+          <a href="https://www.facebook.com/people/Rupee-Lending/61572253015987/" target="_blank" class="bg-gray-700 hover:bg-blue-600 p-3 rounded-full transition">
+            <i class="fab fa-facebook-f text-white text-lg"></i>
+          </a>
+          <a href="https://www.instagram.com/rupeelending/" target="_blank" class="bg-gray-700 hover:bg-pink-600 p-3 rounded-full transition">
+            <i class="fab fa-instagram text-white text-lg"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" class="bg-gray-700 hover:bg-blue-400 p-3 rounded-full transition"><i class="fa-brands fa-x-twitter"></i>
+            <!-- <i class="fab fa-x-twitter text-white text-lg"></i> -->
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <button onclick="openModal()" class="w-full blink-me inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-xl transition shadow-xl" style="background-color: #38773f">
+          🚀 Apply Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Line -->
+    <div class="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+      <p class="mb-1">
+        © 2025 <strong class="text-white">RupeeLending</strong> All
+        rights reserved.
+      </p>
+    </div>
+  </footer>
+  <!-- whatsapp  -->
+  <a aria-labelledby="whatsapp-link" href="https://wa.me/917838329118" title="Chat with us on WhatsApp" target="_blank"
+    class="fixed bottom-12 right-4 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-white" viewBox="0 0 32 32">
+      <path
+        d="M16.005 2.003C8.29 2.003 2.003 8.29 2.003 16.005c0 2.806.73 5.556 2.117 7.975L2 30l6.192-2.09a13.9 13.9 0 0 0 7.813 2.31h.002c7.715 0 14.002-6.287 14.002-14.002 0-7.714-6.287-13.999-14.002-13.999zM16 27.37c-2.435 0-4.809-.655-6.88-1.895l-.493-.294-3.679 1.241 1.2-3.584-.32-.552a11.38 11.38 0 0 1-1.692-6.003c0-6.288 5.118-11.406 11.407-11.406 6.286 0 11.404 5.118 11.404 11.406 0 6.29-5.118 11.41-11.404 11.41zm6.287-8.56c-.344-.172-2.027-1.003-2.343-1.117-.316-.117-.547-.172-.777.172-.229.344-.89 1.117-1.093 1.344-.2.229-.4.257-.738.086-.34-.172-1.437-.528-2.738-1.682-1.011-.902-1.695-2.015-1.893-2.355-.2-.344-.021-.53.15-.702.155-.154.344-.4.515-.6.172-.2.229-.344.344-.574.114-.229.057-.43-.029-.602-.086-.172-.777-1.875-1.066-2.566-.28-.67-.566-.58-.777-.59-.2-.01-.43-.012-.661-.012-.229 0-.6.086-.915.43-.316.344-1.2 1.17-1.2 2.856s1.229 3.312 1.4 3.537c.172.229 2.42 3.69 5.873 5.174.82.354 1.46.566 1.96.726.824.263 1.57.226 2.16.137.66-.098 2.027-.828 2.312-1.627.283-.8.283-1.486.2-1.627-.086-.143-.316-.229-.66-.4z" />
+    </svg>
+  </a>
+  <!-- FontAwesome CDN -->
+  <!-- <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script> -->
+
+  <!-- Optional JS -->
+  <script src="js/script.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</body>
+
+</html>
